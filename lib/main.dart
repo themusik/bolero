@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:bolero/home/home.page.dart';
 import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
@@ -7,16 +10,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Startup Name Generator',
-      // default theme is dependent on the device
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: RandomWords(),
+      home: Home(),
     );
   }
 }
 
+/* -------------------------------------
+    These line below can be deleted
+  -------------------------------------- */
 // maintains the state for the RandomWords widget
 class RandomWordsState extends State<RandomWords> {
   // any identifier that starts with an underscore(_)
