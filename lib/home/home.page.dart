@@ -1,8 +1,12 @@
 
+import 'dart:async';
 import 'dart:developer';
 
+import 'package:bolero/settings/graphOverview.page.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:bolero/home/more.component.dart';
+import 'package:bolero/addData/addData.page.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -10,26 +14,46 @@ class Home extends StatefulWidget{
 }
 
 class PageState extends State<Home> {
+  final Completer<WebViewController> _controller =
+  Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
-    log('PageState.build called');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
         actions: <Widget>[
           PopupMenuButton<int>(
-            onSelected: _selected,
+            onSelected: _popupMenuSelected,
             itemBuilder: (BuildContext context) {
               return _getItemBuilder();
             },
           )
         ],
       ),
+      // body: _bodyBuilder()
+      // body: GraphWebView(),
+      body: WebView(
+        // initialUrl: 'https://pixe.la/v1/users/a-know/graphs/test-graph',
+        initialUrl: 'https://www.google.com',
+        javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (WebViewController webViewController) {
+          _controller.complete(webViewController);
+        },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.of(context).push(_createAddDataPage());
+      },
+        label: Text('add data'),
+        icon: Icon(Icons.add),
+      ),
     );
   }
 
-  void _selected(int index) {
+
+
+  void _popupMenuSelected(int index) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
           builder: (BuildContext context) {
@@ -44,6 +68,19 @@ class PageState extends State<Home> {
     );
   }
 
+  Widget _pageSelector(int index) {
+    switch(MoreMenu.values[index]) {
+      case MoreMenu.SETTING:
+        log('Setting is selected');
+        return ListView();
+        break;
+      case MoreMenu.EDIT_GRAPHS:
+        log('Edit graph is selected');
+        return ListView();
+        break;
+    }
+  }
+
   List<PopupMenuEntry<int>> _getItemBuilder() {
     return MoreMenu.values.map((item) => PopupMenuItem<int>(
       value: item.index,
@@ -52,16 +89,45 @@ class PageState extends State<Home> {
         .toList();
   }
 
-  Widget _pageSelector(int index) {
-    switch(MoreMenu.values[index]) {
-      case MoreMenu.SETTING:
-        log('Setting is selected');
-        break;
-      case MoreMenu.EDIT_GRAPHS:
-        log('Edit graph is selected');
-        break;
-    }
-    return ListView(); // return empty page for now
-
+  /*
+  static String graph = 'assets/test-graph.svg';
+  Widget _bodyBuilder() {
+    return Container(
+      child:new ListView.builder(
+        itemCount: 2,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  new SvgPicture.asset(graph, height: 100, width:100),
+                ],
+              ),
+            ),
+          );
+        }
+      )
+    );
+  }
+  */
+  Route _createAddDataPage() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => AddData(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        var curve = Curves.ease;
+        var curveTween = CurveTween(curve: curve);
+        var tween = Tween(begin: begin, end: end).chain(curveTween);
+        var offsetAnimation = animation.drive(tween);
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child
+        );
+      }
+    );
   }
 }
+
+
+
