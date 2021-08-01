@@ -3,28 +3,23 @@ import 'package:flutter/material.dart';
 class AddData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      body: new Stack(
-        children: <Widget>[
-          new Positioned(
-            child: Align(
-                alignment: Alignment.topCenter,
-                child: SafeArea(top: true, child: title())),
-          ),
-          new Positioned(
-              child: Align(
-                  alignment: Alignment.center,
-                  child: SafeArea(
-                    child: _dailyGoals(context),
-                  ))),
-          new Positioned(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: SafeArea(child: commitButton(context)),
-            ),
-          )
-        ],
-      ),
-    );
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Container(
+            margin: EdgeInsets.symmetric(horizontal: 16.0),
+            child: SafeArea(top: true, child: title())),
+        Container(
+            alignment: Alignment.center,
+            child: SafeArea(
+              child: _dailyGoals(context),
+            )),
+        Container(
+            child: SafeArea(
+          child: commitButton(context),
+        ))
+      ],
+    ));
   }
 
   Widget title() {
