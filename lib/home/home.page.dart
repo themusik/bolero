@@ -4,7 +4,7 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
-import 'package:bolero/settings/graphOverview.page.dart';
+import 'package:bolero/settings/goalOverview.page.dart';
 import 'package:bolero/settings/settings.page.dart';
 import 'package:bolero/home/more.component.dart';
 import 'package:bolero/addData/addData.page.dart';
@@ -174,7 +174,7 @@ class _HomeState extends State<Home> {
         break;
       case MoreMenu.EDIT_GRAPHS:
         log('Edit graph is selected');
-        return GraphOverview();
+        return GoalOverview();
         break;
       default:
         return ListView();
