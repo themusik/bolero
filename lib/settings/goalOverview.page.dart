@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,8 +41,7 @@ class GoalOverview extends StatelessWidget {
     );
   }
 
-  // Future<List> _getGoals() async {
-  Future<List> _getGoals() async {
+  Future<List<String>?> _getGoals() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setStringList('CustomList', goals);
     return pref.getStringList('CustomList');

@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
   String _currentMonth = DateFormat.yMMM().format(DateTime.now());
   DateTime _targetDateTime = DateTime.now();
 
-  CalendarCarousel _calendarCarouselNoHeader;
+  late CalendarCarousel _calendarCarouselNoHeader;
 
   @override
   Widget build(BuildContext context) {
@@ -171,11 +171,9 @@ class _HomeState extends State<Home> {
       case MoreMenu.SETTING:
         log('Setting is selected.');
         return SettingsPage();
-        break;
       case MoreMenu.EDIT_GRAPHS:
         log('Edit graph is selected');
         return GoalOverview();
-        break;
       default:
         return ListView();
     }
