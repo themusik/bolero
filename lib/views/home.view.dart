@@ -1,22 +1,18 @@
-import 'dart:developer';
-
-// import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:bolero/settings/goalOverview.page.dart';
-import 'package:bolero/settings/settings.page.dart';
-import 'package:bolero/home/more.component.dart';
-import 'package:bolero/addData/addData.page.dart';
-import 'package:bolero/widgets/calender.widgets.dart';
+import 'package:bolero/views/addData/addData.view.dart';
+import 'package:bolero/views/more.view.dart';
+import 'package:bolero/views/settings/goalOverview.view.dart';
+import 'package:bolero/views/settings/settings.view.dart';
+import 'package:bolero/widgets/calender.widget.dart';
 
-class Home extends StatefulWidget {
+class HomeView extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    // --------------
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
@@ -56,10 +52,10 @@ class _HomeState extends State<Home> {
   Widget _pageSelector(int index) {
     switch (MoreMenu.values[index]) {
       case MoreMenu.SETTING:
-        log('Setting is selected.');
+        print('Setting is selected.');
         return SettingsPage();
       case MoreMenu.EDIT_GRAPHS:
-        log('Edit graph is selected');
+        print('Edit graph is selected');
         return GoalOverview();
       default:
         return ListView();

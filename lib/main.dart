@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bolero/home/home.page.dart';
+import 'package:bolero/views/home.view.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: Home(),
+      home: HomeView(),
     );
   }
 }
