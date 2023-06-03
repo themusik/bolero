@@ -3,7 +3,7 @@ import 'package:bolero/views/addData/addData.view.dart';
 import 'package:bolero/views/more.view.dart';
 import 'package:bolero/views/settings/goalOverview.view.dart';
 import 'package:bolero/views/settings/settings.view.dart';
-import 'package:bolero/widgets/calender.widget.dart';
+import 'package:bolero/widgets/heatmap.widget.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -25,7 +25,7 @@ class _HomeState extends State<HomeView> {
           )
         ],
       ),
-      body: Calendar(),
+      body: Heatmap(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.of(context).push(_createAddDataPage());
