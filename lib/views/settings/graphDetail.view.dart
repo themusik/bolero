@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class GraphDetail extends StatelessWidget {
+  const GraphDetail({super.key});
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: new Stack(
+    return const Scaffold(
+        body: Stack(
       children: <Widget>[
         TextField(
           decoration: InputDecoration(

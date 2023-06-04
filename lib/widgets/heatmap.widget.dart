@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 
 class Heatmap extends StatefulWidget {
+  const Heatmap({super.key});
+
   @override
   State createState() => _HeatmapState();
 }

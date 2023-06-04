@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
@@ -13,11 +15,11 @@ class _SettingsPageState extends State<SettingsPage> {
         // appBar: AppBar(title: Text('settings page')),
         body: SettingsList(sections: [
       SettingsSection(
-        title: Text('Section'),
+        title: const Text('Section'),
         tiles: [
           SettingsTile(
-              title: Text('notifications'),
-              leading: Icon(Icons.notifications),
+              title: const Text('notifications'),
+              leading: const Icon(Icons.notifications),
               onPressed: (BuildContext context) {}),
         ],
       ),

@@ -8,6 +8,9 @@ List<String> goals = [
 ]; // To be replaced
 
 class GoalOverview extends StatelessWidget {
+  const GoalOverview({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: goals.length,
@@ -17,20 +20,20 @@ class GoalOverview extends StatelessWidget {
           future: _getGoals(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
-              return new Column(
+              return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   // Text((index + 1).toString()),
                   TextField(
                     // decoration: InputDecoration(labelText: snapshot.data[index]),
                     decoration: InputDecoration(
-                        labelText: 'Goal ' + (index + 1).toString(),
+                        labelText: 'Goal ${index + 1}',
                         prefixText: goals[index]),
                   )
                 ],
               );
             } else {
-              return Center(
+              return const Center(
                   child: Column(
                 children: [Text('something else')],
               ));

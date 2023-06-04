@@ -6,8 +6,10 @@ import 'package:bolero/views/settings/settings.view.dart';
 import 'package:bolero/widgets/heatmap.widget.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
   @override
-  _HomeState createState() => _HomeState();
+  State<HomeView> createState() => _HomeState();
 }
 
 class _HomeState extends State<HomeView> {
@@ -15,7 +17,7 @@ class _HomeState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
         actions: <Widget>[
           PopupMenuButton<int>(
             onSelected: _popupMenuSelected,
@@ -25,13 +27,13 @@ class _HomeState extends State<HomeView> {
           )
         ],
       ),
-      body: Heatmap(),
+      body: const Heatmap(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.of(context).push(_createAddDataPage());
         },
-        label: Text('add data'),
-        icon: Icon(Icons.add),
+        label: const Text('add data'),
+        icon: const Icon(Icons.add),
       ),
     );
   }
@@ -53,10 +55,10 @@ class _HomeState extends State<HomeView> {
     switch (MoreMenu.values[index]) {
       case MoreMenu.SETTING:
         print('Setting is selected.');
-        return SettingsPage();
+        return const SettingsPage();
       case MoreMenu.EDIT_GRAPHS:
         print('Edit graph is selected');
-        return GoalOverview();
+        return const GoalOverview();
       default:
         return ListView();
     }
@@ -73,7 +75,8 @@ class _HomeState extends State<HomeView> {
 
   Route _createAddDataPage() {
     return PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => AddData(),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const AddData(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(0.0, 1.0);
           const end = Offset.zero;
