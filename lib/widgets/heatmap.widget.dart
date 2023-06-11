@@ -22,11 +22,13 @@ class _HeatmapState extends State<Heatmap> {
         DateTime(2023, 6, 9): 13,
         DateTime(2023, 6, 13): 6,
       },
-      colorsets: const{
+      colorsets: const {
         1: Colors.red
+        // 1: HeatmapColor(Colors.red)
       },
       onClick: (value) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value.toString())));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(value.toString())));
       },
     );
   }

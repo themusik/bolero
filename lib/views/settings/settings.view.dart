@@ -1,3 +1,4 @@
+import 'package:bolero/views/settings/heatmapColor.view.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -21,6 +22,13 @@ class _SettingsPageState extends State<SettingsPage> {
               title: const Text('notifications'),
               leading: const Icon(Icons.notifications),
               onPressed: (BuildContext context) {}),
+          SettingsTile.navigation(
+              title: const Text('color'),
+              leading: const Icon(Icons.color_lens),
+              onPressed: (BuildContext context) {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const HeatmapColorView()));
+              }),
         ],
       ),
     ]));
