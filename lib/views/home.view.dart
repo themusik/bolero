@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:bolero/views/addData/addData.view.dart';
 import 'package:bolero/views/more.view.dart';
@@ -28,13 +30,18 @@ class _HomeState extends State<HomeView> {
         ],
       ),
       body: const Heatmap(),
-      floatingActionButton: FloatingActionButton.extended(
+      bottomNavigationBar: BottomAppBar(
+          shape: const CircularNotchedRectangle(),
+          child: Container(
+            height: 50.0,
+          )),
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(_createAddDataPage());
         },
-        label: const Text('add data'),
-        icon: const Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 
@@ -54,10 +61,10 @@ class _HomeState extends State<HomeView> {
   Widget _pageSelector(int index) {
     switch (MoreMenu.values[index]) {
       case MoreMenu.SETTING:
-        print('Setting is selected.');
+        log('Setting is selected.');
         return const SettingsPage();
       case MoreMenu.EDIT_GRAPHS:
-        print('Edit graph is selected');
+        log('Edit graph is selected');
         return const GoalOverview();
       default:
         return ListView();
