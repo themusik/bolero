@@ -2,7 +2,7 @@
 
 Daily Habit Tracker App
 
-## how to run the app
+## Run the app
 ```sh
 $ cd bolero
 $ flutter pub get // pull the package into project

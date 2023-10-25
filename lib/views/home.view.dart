@@ -60,10 +60,10 @@ class _HomeState extends State<HomeView> {
 
   Widget _pageSelector(int index) {
     switch (MoreMenu.values[index]) {
-      case MoreMenu.SETTING:
+      case MoreMenu.setting:
         log('Setting is selected.');
         return const SettingsPage();
-      case MoreMenu.EDIT_GRAPHS:
+      case MoreMenu.editGraphs:
         log('Edit graph is selected');
         return const GoalOverview();
       default:

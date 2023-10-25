@@ -23,12 +23,10 @@ class GoalOverview extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // Text((index + 1).toString()),
                   TextField(
-                    // decoration: InputDecoration(labelText: snapshot.data[index]),
                     decoration: InputDecoration(
-                        labelText: 'Goal ${index + 1}',
-                        prefixText: goals[index]),
+                      labelText: 'Goal ${index + 1}',
+                    ),
                   )
                 ],
               );

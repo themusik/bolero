@@ -1,18 +1,17 @@
 // import 'package:flutter/material.dart';
 
-enum MoreMenu { SETTING, EDIT_GRAPHS }
+enum MoreMenu { setting, editGraphs }
 
-String displayString (MoreMenu item) {
+String displayString(MoreMenu item) {
   String displayString = '';
 
-  switch(item) {
-    case MoreMenu.SETTING:
+  switch (item) {
+    case MoreMenu.setting:
       displayString = "Settings";
       break;
-    case MoreMenu.EDIT_GRAPHS:
+    case MoreMenu.editGraphs:
       displayString = "Edit Tiles";
       break;
   }
   return displayString;
 }
-

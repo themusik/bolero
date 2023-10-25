@@ -1,4 +1,3 @@
-import 'package:bolero/views/settings/settings.view.dart';
 import 'package:flutter/material.dart';
 
 class HeatmapColor {

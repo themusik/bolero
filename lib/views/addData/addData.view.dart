@@ -1,16 +1,23 @@
+// import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
 class AddData extends StatelessWidget {
   const AddData({super.key});
 
+  void saveAchievement(String str) {
+    print(str);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
+        body: Center(
+            child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16.0),
+            margin: const EdgeInsets.symmetric(horizontal: 3.0),
             child: SafeArea(top: true, child: title())),
         Container(
             alignment: Alignment.center,
@@ -18,10 +25,15 @@ class AddData extends StatelessWidget {
               child: _dailyGoals(context),
             )),
         SafeArea(
+          child: ElevatedButton(
+              onPressed: () => saveAchievement('TODO'),
+              child: const Text('data')),
+        ),
+        SafeArea(
           child: commitButton(context),
         )
       ],
-    ));
+    )));
   }
 
   Widget title() {
