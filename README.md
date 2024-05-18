@@ -1,6 +1,11 @@
 # bolero
 
-Daily Habit Tracker App
+Weekly Habit Tracker App
+
+## set variants
+```sh
+$ source .env
+```
 
 ## Run the app
 ```sh
