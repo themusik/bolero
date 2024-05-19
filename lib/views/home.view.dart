@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bolero/views/calendar.view.dart';
 import 'package:flutter/material.dart';
 import 'package:bolero/views/addData/addData.view.dart';
@@ -18,18 +20,26 @@ class _HomeState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home'),
-          actions: <Widget>[
-            PopupMenuButton<int>(
-              onSelected: _popupMenuSelected,
-              itemBuilder: (BuildContext context) {
-                return _getItemBuilder();
-              },
-            )
-          ],
-        ),
-        body: const Calendar());
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: <Widget>[
+          PopupMenuButton<int>(
+            onSelected: _popupMenuSelected,
+            itemBuilder: (BuildContext context) {
+              return _getItemBuilder();
+            },
+          )
+        ],
+      ),
+      body: const Calendar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const AddData()))
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 
   void _popupMenuSelected(int index) {
